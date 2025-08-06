@@ -1,0 +1,59 @@
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  {% bootstrap_css %}
+  <title>Estimador de viviendas</title>
+</head>
+<body>
+  <div class="container my-5">
+    <!-- Estimación -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-primary text-white">
+        <h2 class="mb-0">Estimación del valor del inmueble</h2>
+      </div>
+      <div class="card-body">
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div class="d-grid">
+            {% bootstrap_button button_type="submit" content="Estimar" button_class="btn-success btn-lg" %}
+          </div>
+        </form>
+        {% if resultado %}
+          {% bootstrap_alert "Valor estimado:" alert_type="info" %}
+          <p class="mt-2">{{ resultado }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Mapa del barrio -->
+    <div class="card shadow-sm">
+      <div class="card-header bg-secondary text-white">
+        <h2 class="mb-0">Ubicación del barrio</h2>
+      </div>
+      <div class="card-body">
+        {% if barrio and API_KEY %}
+          <h4 class="mb-3">Mapa del barrio: <strong>{{ barrio }}</strong></h4>
+          <div style="width: 100%; height: 400px;">
+            <iframe
+              width="100%" height="100%"
+              frameborder="0"
+              style="border:0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed/v1/place?key={{ API_KEY }}&q={{ barrio|urlencode }}">
+            </iframe>
+          </div>
+        {% else %}
+          {% bootstrap_alert "No se ha indicado ningún barrio o la clave API no está disponible." alert_type="warning" %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% bootstrap_javascript %}
+</body>
+</html>
