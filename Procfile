@@ -1,1 +1,1 @@
-web: gunicorn predictor.wsgi
+web: gunicorn estimador_viviendas.wsgi

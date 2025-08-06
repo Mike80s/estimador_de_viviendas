@@ -50,7 +50,7 @@ print("API_KEY:", env('GOOGLE_MAPS_API_KEY', default=None))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
