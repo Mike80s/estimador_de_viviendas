@@ -33,7 +33,7 @@ pytz==2025.2
 requests==2.32.4
 rich==14.0.0
 scikit-learn==1.7.1
-scipy==1.16.0
+scipy>=1.10,<1.13
 six==1.17.0
 sqlparse==0.5.3
 tensorboard==2.16.2
