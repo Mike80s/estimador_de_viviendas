@@ -10,6 +10,7 @@ flatbuffers==25.2.10
 gast==0.6.0
 google-pasta==0.2.0
 grpcio==1.73.1
+gunicorn==21.2.0
 h5py==3.14.0
 idna==3.10
 joblib==1.5.1
