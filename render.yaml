@@ -3,8 +3,6 @@ services:
     name: estimador-de-viviendas
     env: python
     buildCommand: pip install -r requirements.txt
-    start: python manage.py runserver 0.0.0.0:8000
-    pythonVersion: 3.10.13  # <- esta línea es la que obliga a usar Python 3.10
-
+    startCommand: gunicorn estimador_viviendas.wsgi:application --bind 0.0.0.0:8000
 
 
