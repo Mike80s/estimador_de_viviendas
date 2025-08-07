@@ -52,6 +52,9 @@ print("API_KEY:", env('GOOGLE_MAPS_API_KEY', default=None))
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-50e8e.up.railway.app'
+]
 
 # Application definition
 
