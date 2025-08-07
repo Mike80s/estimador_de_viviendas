@@ -6,6 +6,6 @@ services:
     startCommand: gunicorn estimador_viviendas.wsgi:application
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10.13
+        value: 3.10
 
 
