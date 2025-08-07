@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: estimador-viviendas
+    env: python
+    plan: free
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn estimador_viviendas.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: estimador_viviendas.settings
