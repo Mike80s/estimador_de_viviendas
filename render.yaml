@@ -1,11 +1,10 @@
 services:
   - type: web
-    name: estimador-viviendas
+    name: estimador-de-viviendas
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python manage.py runserver 0.0.0.0:8000
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.13
+    startCommand: gunicorn estimador_de_viviendas.wsgi
+    pythonVersion: 3.10.13
+
 
 
